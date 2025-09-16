@@ -5,9 +5,7 @@ namespace App\Filament\Resources\Instructors;
 use App\Filament\Resources\Instructors\Pages\CreateInstructor;
 use App\Filament\Resources\Instructors\Pages\EditInstructor;
 use App\Filament\Resources\Instructors\Pages\ListInstructors;
-use App\Filament\Resources\Instructors\Pages\ViewInstructor;
 use App\Filament\Resources\Instructors\Schemas\InstructorForm;
-use App\Filament\Resources\Instructors\Schemas\InstructorInfolist;
 use App\Filament\Resources\Instructors\Tables\InstructorsTable;
 use App\Models\Instructor;
 use BackedEnum;
@@ -22,18 +20,13 @@ class InstructorResource extends Resource
 {
     protected static ?string $model = Instructor::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
 
-    protected static ?string $recordTitleAttribute = 'instructor';
+    protected static ?string $recordTitleAttribute = 'Instructor';
 
     public static function form(Schema $schema): Schema
     {
         return InstructorForm::configure($schema);
-    }
-
-    public static function infolist(Schema $schema): Schema
-    {
-        return InstructorInfolist::configure($schema);
     }
 
     public static function table(Table $table): Table
@@ -53,7 +46,6 @@ class InstructorResource extends Resource
         return [
             'index' => ListInstructors::route('/'),
             'create' => CreateInstructor::route('/create'),
-            'view' => ViewInstructor::route('/{record}'),
             'edit' => EditInstructor::route('/{record}/edit'),
         ];
     }

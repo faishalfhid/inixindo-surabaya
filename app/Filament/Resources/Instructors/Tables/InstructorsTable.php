@@ -7,11 +7,9 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
-use Filament\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
-use Filament\Tables\Columns\TextColumn;
-
 
 class InstructorsTable
 {
@@ -19,28 +17,31 @@ class InstructorsTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')
-                    ->label('ID')
-                    ->sortable()
-                    ->searchable(),
                 TextColumn::make('nama')
-                    ->label('Nama')
-                    ->sortable()
                     ->searchable(),
                 TextColumn::make('email')
-                    ->label('Email')
-                    ->sortable()
+                    ->label('Email address')
                     ->searchable(),
                 TextColumn::make('total_hari_ajar')
-                    ->label('Total Hari Ajar')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('created_at')
+                    ->dateTime()
                     ->sortable()
-                    ->searchable(),
-                ])
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('deleted_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+            ])
             ->filters([
                 TrashedFilter::make(),
             ])
             ->recordActions([
-                ViewAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([
