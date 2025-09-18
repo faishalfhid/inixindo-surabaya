@@ -23,7 +23,8 @@ class MaterialsTable
                 TextColumn::make('sumber')
                     ->searchable(),
                 TextColumn::make('harga')
-                    ->searchable(),
+                    ->searchable()
+                    ->money('IDR', decimalPlaces: 2),
             ])
             ->filters([
                 //

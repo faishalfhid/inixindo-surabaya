@@ -27,9 +27,11 @@ class TrainingForm
                     ->relationship('materials', 'nama')
                     ->required(),
                 DatePicker::make('tanggal_mulai')
-                    ->required(),
+                    ->required()
+                    ->afterOrEqual('today'),
                 DatePicker::make('tanggal_selesai')
-                    ->required(),
+                    ->required()
+                    ->afterOrEqual('tanggal_mulai'),
                 TextInput::make('ruangan')
                     ->default(null),
             ]);

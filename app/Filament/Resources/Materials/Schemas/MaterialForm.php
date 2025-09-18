@@ -4,6 +4,10 @@ namespace App\Filament\Resources\Materials\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Support\RawJs;
+use Filament\Forms\Components\Select;
+
+
 
 class MaterialForm
 {
@@ -15,13 +19,26 @@ class MaterialForm
                     ->required(),
                 TextInput::make('nama')
                     ->required(),
-                TextInput::make('status')
-                    ->required(),
-                TextInput::make('sumber')
-                    ->required(),
+                Select::make('status')
+                    ->required()
+                    ->options([
+                        'Pre Order' => 'Pre Order',
+                        'Opsi 2' => 'Opsi 2',
+                        'Opsi 3' => 'Opsi 3',
+                    ]),
+                Select::make('sumber')
+                    ->required()
+                    ->options([
+                        'Holding' => 'Holding',
+                        'Authorized' => 'Authorized',
+                        'Opsi 3' => 'Opsi 3',
+                    ]),
                 TextInput::make('harga')
                     ->required()
-                    ->default('0'),
+                    ->prefix('Rp')
+                    ->mask(RawJs::make('$money($input)'))
+                    ->stripCharacters(',')
+                    ->numeric(),
             ]);
     }
 }
