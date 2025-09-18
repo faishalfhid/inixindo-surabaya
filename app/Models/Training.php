@@ -19,4 +19,10 @@ public function materials()
     return $this->belongsToMany(Material::class, 'training_materials', 'training_id', 'kode_materi')
                 ->withTimestamps();
 }
+
+public function participants()
+{
+    return $this->hasMany(\App\Models\Participant::class);
+}
+
 }

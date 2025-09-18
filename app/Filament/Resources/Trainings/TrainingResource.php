@@ -32,6 +32,15 @@ class TrainingResource extends Resource
         return TrainingsTable::configure($table);
     }
 
+    public static function getRelations(): array
+    {
+        return [
+            \App\Filament\Resources\TrainingResource\RelationManagers\ParticipantsRelationManager::class,
+
+            //
+        ];
+    }
+
     public static function getPages(): array
     {
         return [
