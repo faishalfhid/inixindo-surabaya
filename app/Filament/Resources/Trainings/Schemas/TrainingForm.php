@@ -20,7 +20,11 @@ class TrainingForm
                     ->preload()
                     ->required()
                     ->label('Pilih Instruktur'),
-                TextInput::make('nama_training')
+                Select::make('materials')
+                    ->label('Materi')
+                    ->multiple()
+                    ->preload()
+                    ->relationship('materials', 'nama')
                     ->required(),
                 DatePicker::make('tanggal_mulai')
                     ->required(),

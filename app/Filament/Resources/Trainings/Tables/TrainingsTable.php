@@ -15,10 +15,16 @@ class TrainingsTable
     {
         return $table
             ->columns([
-                TextColumn::make('nama_training')
+                TextColumn::make('instructors.nama')
+                    ->label('Nama Instruktur')
+                    ->sortable(),
+                
+                TextColumn::make('materials.nama')
+                    ->label('Nama Materi')
+                    ->sortable()
                     ->searchable(),
                 
-                TextColumn::make('perie')
+                TextColumn::make('periode')
                     ->label('Periode Pelatihan')
                     ->getStateUsing(function ($record) {
                         $mulai = \Carbon\Carbon::parse($record->tanggal_mulai)->format('d/m/Y');
@@ -32,7 +38,7 @@ class TrainingsTable
                 TextColumn::make('ruangan')
                     ->searchable(),
 
-            ])
+                ])
             ->filters([
                 //
             ])
