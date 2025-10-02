@@ -21,7 +21,6 @@ class Material extends Model
 
     public function trainings()
     {
-        return $this->hasMany(Training::class, 'training_materials', 'training_id', 'kode_materi')
-                    ->withTimestamps();
+        return $this->hasMany(Training::class, 'kode_materi', 'kode_materi');
     }
 }

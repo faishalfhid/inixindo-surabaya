@@ -10,7 +10,9 @@
         "doctrine/dbal": "^4.3",
         "filament/filament": "^4.0",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/sanctum": "^4.2",
+        "laravel/tinker": "^2.10.1",
+        "rupadana/filament-api-service": "^4.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

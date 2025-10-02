@@ -7,8 +7,6 @@ use Filament\Schemas\Schema;
 use Filament\Support\RawJs;
 use Filament\Forms\Components\Select;
 
-
-
 class MaterialForm
 {
     public static function configure(Schema $schema): Schema

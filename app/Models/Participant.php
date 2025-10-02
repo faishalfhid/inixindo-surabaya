@@ -39,7 +39,7 @@ class Participant extends Model
 
     public function training()
     {
-        return $this->belongsTo(Training::class);
+        return $this->belongsTo(Training::class, 'training_id');
     }
 
     public function confirm(array $data = [])

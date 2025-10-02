@@ -6,23 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Training extends Model
 {
-    protected $fillable = ['tanggal_mulai','tanggal_selesai','ruangan'];
+    protected $fillable = ['tanggal_mulai','nama_training','tanggal_selesai','ruangan'];
 
 public function instructors()
 {
     return $this->belongsToMany(Instructor::class, 'training_instructors', 'training_id', 'instructor_id')
                 ->withTimestamps();
 }
-
-public function materials()
+    
+public function material()
 {
-    return $this->belongsToMany(Material::class, 'training_materials', 'training_id', 'kode_materi')
-                ->withTimestamps();
+    return $this->belongsTo(Material::class, 'nama_training', 'nama');
 }
 
 public function participants()
 {
-    return $this->hasMany(\App\Models\Participant::class);
+    return $this->hasMany(\App\Models\Participant::class, 'training_id');
 }
 
 }

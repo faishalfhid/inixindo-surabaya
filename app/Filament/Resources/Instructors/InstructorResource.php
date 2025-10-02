@@ -15,10 +15,13 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use UnitEnum;
 
 class InstructorResource extends Resource
 {
     protected static ?string $model = Instructor::class;
+
+    protected static string | UnitEnum | null $navigationGroup = 'Kebutuhan Training';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
 

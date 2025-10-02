@@ -19,8 +19,8 @@ class TrainingsTable
                     ->label('Nama Instruktur')
                     ->sortable(),
                 
-                TextColumn::make('materials.nama')
-                    ->label('Nama Materi')
+                TextColumn::make('nama_training')
+                    ->label('Nama Materi Pelatihan')
                     ->sortable()
                     ->searchable(),
                 
