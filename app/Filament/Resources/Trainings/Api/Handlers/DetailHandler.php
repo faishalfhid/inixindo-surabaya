@@ -14,6 +14,7 @@ class DetailHandler extends Handlers
     public static string | null $uri = '/{id}';
     public static string | null $resource = TrainingResource::class;
     protected static string $permission = 'View:Training';
+    public static bool $public = true;
 
 
     /**
